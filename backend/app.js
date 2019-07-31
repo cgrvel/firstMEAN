@@ -5,11 +5,12 @@ const Post = require ('./models/post');
 const mongoose = require ('mongoose');
 
 mongoose.connect('mongodb://localhost/node-angular')
+//mongoose.connect('mongodb+srv://game:gBWl0rKwyiFLMQEq@cluster0-v9f6w.mongodb.net/node-angular?retryWrites=true&w=majority', { useNewUrlParser: true })
 .then(() => {
   console.log('Connected to database');
 })
-.catch(() => {
-  console.log('Connection failed');
+.catch((err) => {
+  console.log('Connection failed',err);
 });
 
 app.use(bodyParser.json());
