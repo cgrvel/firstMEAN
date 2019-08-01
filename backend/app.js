@@ -4,7 +4,7 @@ const app = express();
 const Post = require ('./models/post');
 const mongoose = require ('mongoose');
 
-mongoose.connect('mongodb://localhost/node-angular')
+mongoose.connect('mongodb://localhost/node-angular', { useNewUrlParser: true })
 //mongoose.connect('mongodb+srv://game:gBWl0rKwyiFLMQEq@cluster0-v9f6w.mongodb.net/node-angular?retryWrites=true&w=majority', { useNewUrlParser: true })
 .then(() => {
   console.log('Connected to database');
@@ -52,6 +52,18 @@ app.get('/api/posts',(req, res, next)=>{
       message: 'Post sent Successfully',
       posts: documents
     });
+  });
+});
+
+app.get('/api/posts/:id', (req, res, next) => {
+  Post.findById(req.param.id).then(post => {
+    if(post) {
+      res.status(200).json(post);
+    } else {
+      res.status(404).json({
+        message : 'Post not found!'
+      });
+    }
   });
 });
 
