@@ -7,7 +7,8 @@ import {
   MatButtonModule,
   MatToolbarModule,
   MatExpansionModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+  MatPaginatorModule
 } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
@@ -37,7 +38,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatToolbarModule,
     MatExpansionModule,
     HttpClientModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatPaginatorModule
   ],
   providers: [PostService],
   bootstrap: [AppComponent]
