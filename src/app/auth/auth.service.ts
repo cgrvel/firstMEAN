@@ -37,6 +37,9 @@ export class AuthService {
     .subscribe(res => {
       console.log(res);
       this.router.navigate(['/']);
+    },
+    error => {
+      this.authStatusListener.next(false);
     });
   }
 
@@ -58,6 +61,8 @@ export class AuthService {
         this.saveAuthDate(token, expirationDate, this.userId);
         this.router.navigate(['/']);
       }
+    }, error => {
+      this.authStatusListener.next(false);
     });
   }
 

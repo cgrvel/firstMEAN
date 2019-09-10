@@ -8,7 +8,7 @@ export class AuthGaurd implements CanActivate{
   constructor(private authService: AuthService, private router: Router) {}
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | Observable<boolean> | Promise<boolean> {
     const isAuth = this.authService.getIsAuth();
-    if(!isAuth) {
+    if (!isAuth) {
       this.router.navigate(['/login']);
     }
     return isAuth;
